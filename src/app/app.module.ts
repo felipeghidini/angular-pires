@@ -25,7 +25,7 @@ import { APP_BASE_HREF } from '@angular/common';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    [RouterModule.forRoot(rootRouterConfig, {useHash: false})]
+    [RouterModule.forRoot(rootRouterConfig, { useHash: false })]
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'}
