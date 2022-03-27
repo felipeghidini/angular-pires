@@ -11,6 +11,7 @@ import { ContatoComponent } from './institucional/contato/contato.component';
 import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
 import { APP_BASE_HREF } from '@angular/common';
+import { DataBindingComponent } from './demo/data-binding/data-binding.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { APP_BASE_HREF } from '@angular/common';
     HomeComponent,
     FooterComponent,
     SobreComponent,
-    ContatoComponent
+    ContatoComponent,
+    DataBindingComponent
   ],
   imports: [
     BrowserModule,
