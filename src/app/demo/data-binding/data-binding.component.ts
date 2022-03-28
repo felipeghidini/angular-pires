@@ -14,6 +14,10 @@ export class DataBindingComponent implements OnInit {
     this.contadorClique++;
   }
 
+  zerarContador() {
+    this.contadorClique = 0;
+  }
+
   constructor() { }
 
   ngOnInit(): void {
