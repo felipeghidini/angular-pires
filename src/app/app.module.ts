@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
 import { APP_BASE_HREF } from '@angular/common';
 import { DataBindingComponent } from './demo/data-binding/data-binding.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { DataBindingComponent } from './demo/data-binding/data-binding.component
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     [RouterModule.forRoot(rootRouterConfig, { useHash: false })]
   ],
   providers: [
