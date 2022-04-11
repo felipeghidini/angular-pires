@@ -15,6 +15,7 @@ import { DataBindingComponent } from './demo/data-binding/data-binding.component
 import { FormsModule } from '@angular/forms';
 import { ProdutoService } from './produtos/produtos.service';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.co
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     [RouterModule.forRoot(rootRouterConfig, { useHash: false })]
   ],
   providers: [
