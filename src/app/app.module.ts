@@ -15,10 +15,11 @@ import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
 import { APP_BASE_HREF } from '@angular/common';
 import { DataBindingComponent } from './demo/data-binding/data-binding.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProdutoService } from './produtos/produtos.service';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
 
 
 @NgModule({
@@ -30,14 +31,16 @@ import { HttpClientModule } from '@angular/common/http';
     SobreComponent,
     ContatoComponent,
     DataBindingComponent,
-    ListaProdutoComponent
+    ListaProdutoComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    [RouterModule.forRoot(rootRouterConfig, { useHash: false })]
+    [RouterModule.forRoot(rootRouterConfig, { useHash: false })],
+    ReactiveFormsModule
   ],
   providers: [
     ProdutoService,
