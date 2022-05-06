@@ -6,8 +6,11 @@
       <div class="form-group">
         <label for="nome" class="col-md-2 control-label">Nome Completo</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" id="nome" placeholder="Nome (requerido)" formControlName="nome">
+          <input type="text" class="form-control" id="nome" placeholder="Nome (requerido)" formControlName="nome" [ngClass]="{'is-invalid': cadastroForm.get('nome').errors && (cadastroForm.get('nome').touched || cadastroForm.get('nome').dirty)}">
         </div>
+        <span class="text-danger" *ngIf="cadastroForm.get('nome').errors && (cadastroForm.get('nome').touched || cadastroForm.get('nome').dirty)">
+          <p>Preencha o campo nome</p>
+        </span>
       </div>
 
       <div class="form-group">
@@ -40,6 +43,14 @@
           <span><button class="btn btn-success" id="registrar" type="submit">Registrar</button></span>
         </div>
       </div>
+      <div class="form-group">
+        <div class="col-mt-4 col-md-offset-2">
+          <p>Formulario válido: {{ cadastroForm.valid }}</p>
+          <p>Formulario tocado: {{ cadastroForm.touched }}</p>
+          <p>Formulario sujo: {{ cadastroForm.dirty }}</p>
+        </div>
+      </div>
+
     </div>
   </form>
 </div>
