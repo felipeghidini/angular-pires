@@ -20,6 +20,9 @@ import { ProdutoService } from './produtos/produtos.service';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
+import { NgBrazil } from 'ng-brazil'
+import { TextMaskModule } from 'angular2-text-mask';
+import { CustomFormsModule } from 'ng2-validation'
 
 
 @NgModule({
@@ -39,8 +42,11 @@ import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.compo
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    [RouterModule.forRoot(rootRouterConfig, { useHash: false })],
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgBrazil,
+    TextMaskModule,
+    CustomFormsModule,
+    [RouterModule.forRoot(rootRouterConfig, { useHash: false })]
   ],
   providers: [
     ProdutoService,
