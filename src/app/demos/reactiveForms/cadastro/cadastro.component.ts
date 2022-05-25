@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from
 import { utilsBr } from 'js-brasil';
 import { NgBrazilValidators } from 'ng-brazil';
 import { CustomValidators } from 'ng2-validation';
+import { fromEvent, merge, Observable } from 'rxjs';
 import { Usuario } from '../../models/usuario';
 import { DisplayMessage, GenericValidator, ValidationMessages } from './generic-form-validation';
 
@@ -66,8 +67,14 @@ export class CadastroComponent implements OnInit, AfterViewInit {
     });
   }
 
+   // Criei o controlBlur que é uma coleção de Observable, onde essa coleção será criada com base no mapeamento de cada item do meu formulário através do meu evento blur, que seria tirar o foco do item do formulário
+   //merge - pega a coleção de Observable
   ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
+    let controlBlurs: Observable<any>[] = this.formInputElements.map((formControl: ElementRef) => fromEvent(formControl.nativeElement, 'blur'));
+
+    merge(...controlBlurs).subscribe(() => {
+      this.displayMessage = this.genericValidator.processarMessages(this.cadastroForm);
+    })
   }
 
   adicionarUsuario() {

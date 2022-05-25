@@ -6,53 +6,51 @@
       <div class="form-group">
         <label for="nome" class="col-md-2 control-label">Nome Completo</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" id="nome" placeholder="Nome (requerido)" formControlName="nome"
-            [ngClass]="{'is-invalid': cadastroForm.get('nome').errors && (cadastroForm.get('nome').touched || cadastroForm.get('nome').dirty)}">
+          <input type="text" class="form-control" id="nome" placeholder="Nome (requerido)" formControlName="nome" [ngClass]="{'is-invalid': displayMessage.nome}">
+          <span class="text-danger" *ngIf="displayMessage.nome">
+            <p [innerHTML]="displayMessage.nome"></p>
+          </span>
         </div>
-        <span class="text-danger"
-          *ngIf="cadastroForm.get('nome').errors && (cadastroForm.get('nome').touched || cadastroForm.get('nome').dirty)">
-          <p>Preencha o campo nome</p>
-        </span>
       </div>
 
       <div class="form-group">
         <label for="nome" class="col-md-2 control-label">CPF</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" id="cpf" placeholder="CPF (requerido)" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}">
+          <input type="text" class="form-control" id="cpf" placeholder="CPF (requerido)" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"  [ngClass]="{'is-invalid': displayMessage.cpf}">
+          <span class="text-danger" *ngIf="displayMessage.cpf">
+            <p [innerHTML]="displayMessage.cpf"></p>
+          </span>
         </div>
-        <span class="text-danger"
-          *ngIf="cadastroForm.get('cpf').errors && (cadastroForm.get('cpf').touched || cadastroForm.get('cpf').dirty)">
-          <p>CPF inválido</p>
-        </span>
       </div>
 
       <div class="form-group">
         <label for="nome" class="col-md-2 control-label">E-mail</label>
         <div class="col-md-10">
           <input type="text" class="form-control" id="email" placeholder="E-mail (requerido)" formControlName="email"
-            [ngClass]="{'is-invalid': cadastroForm.get('email').errors && (cadastroForm.get('email').touched || cadastroForm.get('email').dirty)}">
+          [ngClass]="{'is-invalid': displayMessage.email}">
         </div>
-        <span class="text-danger"
-          *ngIf="cadastroForm.get('email')?.errors?.required && (cadastroForm.get('email').touched || cadastroForm.get('email').dirty)">
-          <p>E-mail em formato inválido</p>
+        <span class="text-danger" *ngIf="displayMessage.email">
+          <p [innerHTML]="displayMessage.email"></p>
         </span>
       </div>
       <div class="form-group">
         <label for="nome" class="col-md-2 control-label">Senha</label>
         <div class="col-md-10">
           <input type="password" class="form-control" id="senha" placeholder="Senha (requerido)"
-            formControlName="senha">
-            <span class="text-danger"
-            *ngIf="cadastroForm.get('senha')?.errors?.rangeLength && (cadastroForm.get('senha').touched || cadastroForm.get('senha').dirty)">
-            <p>Tamanho inválido</p>
-          </span>
+            formControlName="senha" [ngClass]="{'is-invalid': displayMessage.senha}">
+            <span class="text-danger" *ngIf="displayMessage.senha">
+              <p [innerHTML]="displayMessage.senha"></p>
+            </span>
         </div>
       </div>
       <div class="form-group">
         <label for="nome" class="col-md-2 control-label">Confirme a Senha</label>
         <div class="col-md-10">
           <input type="password" class="form-control" id="senhaConfirmacao" placeholder="Confirme a Senha (requerido)"
-            formControlName="senhaConfirmacao">
+            formControlName="senhaConfirmacao" [ngClass]="{'is-invalid': displayMessage.senhaConfirmacao}">
+            <span class="text-danger" *ngIf="displayMessage.senhaConfirmacao">
+              <p [innerHTML]="displayMessage.senhaConfirmacao"></p>
+            </span>
         </div>
       </div>
       <div class="form-group">
